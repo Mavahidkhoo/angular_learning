@@ -1,46 +1,46 @@
 [
     {
         "name": "add user",
-        "link": ""
+        "path": "./nav.component.html"
     },
     {
         "name": "Edit",
-        "link": ""
+        "path": ""
     },
     {
         "name": "Login",
-        "link": ""
+        "path": ""
     },
     {
-        "name": "test1",
-        "link": ""
+        "name": "َAbout",
+        "path": "../about/about.component.html"
     },
     {
         "name": "test2",
-        "link": ""
+        "path": ""
     },
     {
         "name": "test3",
-        "link": ""
+        "path": ""
     },
     {
         "name": "test4",
-        "link": ""
+        "path": ""
     },
     {
         "name": "test5",
-        "link": ""
+        "path": ""
     },
     {
         "name": "test6",
-        "link": ""
+        "path": ""
     },
     {
         "name": "test7",
-        "link": ""
+        "path": ""
     },
     {
         "name": "test8",
-        "link": ""
+        "path": ""
     }
 ]

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import menuData from './menuItem.json';
+import menuData from './menuItem.model.json';
  interface Navitem {
   name: string;
-  link: string;
+  path: string;
 }
 @Component({
   selector: 'app-nav',
