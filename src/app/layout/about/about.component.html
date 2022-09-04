@@ -1,38 +1,128 @@
 <html>
-    <div class="container">
-        <div class="row">
-              
-            <ul class="nav nav-tabs justify-content-center bg-secondary">
-                <li class="nav-item">
-                  <a data-toggle="tab" class="nav-link active text-dark fw-bold" href="#first">First</a>
-                </li>
-                <li class="nav-item">
-                  <a data-toggle="tab" class="nav-link text-dark fw-bold" href="#second">second</a>
-                </li>
-                <li class="nav-item">
-                  <a data-toggle="tab" class="nav-link text-dark fw-bold" href="#third">Third</a>
-                </li>
-              </ul>
-              <div class="tab-content">
-                <div id="first" class="tab-pane fade in active text-primary">
-                    <h3>HOME</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et
-                        dolore magna aliqua.</p>
-                </div>
-                <div id="second" class="tab-pane fade text-dark">
-                    <h3>Menu 1</h3>
-                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                        ea commodo consequat.
-                    </p>
-                </div>
-                <div id="third" class="tab-pane fade text-danger">
-                    <h3>Menu 2</h3>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                        laudantium, totam rem
-                        aperiam.</p>
-                </div>
-              </div>
+  <div class="container">
+    <div class="row">
+      <nav>
+        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#first" type="button" role="tab"  aria-selected="true">First</button>
+          <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#second" type="button" role="tab"  aria-selected="false">Second</button>
+          <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#third" type="button" role="tab"  aria-selected="false">Third</button>
         </div>
+      </nav>
+      <div class="tab-content text-center mt-5" id="nav-tabContent">
+        <!--First 3 card-->
+        <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="nav-home-tab">
+          <div class="row">
+             <!--Card 1-->
+          <div class="card col-3 mx-5">
+            <div class="card-body">
+              <h5 class="card-title text-bg-dark">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+            
+          </div>
+          <!--Card 2-->
+          <div class="card col-3 mx-5">
+            <div class="card-body">
+              <h5 class="card-title text-bg-dark">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          <!--Card 3-->
+          <div class="card col-3 mx-5">
+            <div class="card-body">
+              <h5 class="card-title text-bg-dark">Card title</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
+        </div>
+         <!--second 3 card-->
+        <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="row">
+               <!--Card 1-->
+            <div class="card col-3 mx-5">
+              <div class="card-body">
+                <h5 class="card-title text-bg-info">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+              
+            </div>
+            <!--Card 2-->
+            <div class="card col-3 mx-5">
+              <div class="card-body">
+                <h5 class="card-title text-bg-info">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+            <!--Card 3-->
+            <div class="card col-3 mx-5">
+              <div class="card-body">
+                <h5 class="card-title text-bg-info">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+         <!--third 3 card-->
+        <div class="tab-pane fade" id="third" role="tabpanel" aria-labelledby="nav-contact-tab">
+          <div class="tab-pane fade show active" id="first" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="row">
+               <!--Card 1-->
+            <div class="card col-3 mx-5">
+              <div class="card-body">
+                <h5 class="card-title text-bg-danger">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+              
+            </div>
+            <!--Card 2-->
+            <div class="card col-3 mx-5">
+              <div class="card-body">
+                <h5 class="card-title text-bg-danger">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+            <!--Card 3-->
+            <div class="card col-3 mx-5">
+              <div class="card-body">
+                <h5 class="card-title text-bg-danger">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
 </html>
