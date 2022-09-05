@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AboutComponent } from './layout/about/about.component';
-
 
 const routes: Routes = [
-  { path: 'about', component: AboutComponent }
+  { path: 'about', 
+  loadChildren: () => import('./layout/about/about.module').then(m => m.AboutModule)
+}
 ]; 
 
 @NgModule({
