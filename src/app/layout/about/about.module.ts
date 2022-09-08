@@ -14,10 +14,10 @@ const routes: Routes = [
     AboutComponent
   ],
   imports: [
-    CommonModule ,
+    CommonModule,
     RouterModule.forChild(routes)
-    
+
   ],
-  exports:[RouterModule]
+  exports: [RouterModule]
 })
 export class AboutModule { }

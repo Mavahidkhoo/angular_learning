@@ -4,12 +4,14 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './layout/nav/nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { RegisterComponent } from './layout/register/register.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
