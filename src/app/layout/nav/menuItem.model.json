@@ -1,19 +1,19 @@
 [
     {
-        "name": "add user",
-        "path": ""
-    },
-    {
-        "name": "Edit",
-        "path": ""
-    },
-    {
         "name": "Login",
+        "path": "login"
+    },
+    {
+        "name": "About",
+        "path": "about"
+    },
+    {
+        "name": "Coming Soon",
         "path": ""
     },
     {
-        "name": "َAbout",
-        "path": "about"
+        "name": "test1",
+        "path": ""
     },
     {
         "name": "test2",
