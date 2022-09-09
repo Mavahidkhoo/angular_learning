@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalService } from '../../../app/local.service';
+import { NgForm } from '@angular/forms';
+import { LocalService } from '../../local.service';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,14 @@ import { LocalService } from '../../../app/local.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  registerUser(form: NgForm) {
+    // console.log(form.value);
+    this.localStore.saveData(form.value.username, form.value.password);
+  }
 
   constructor(private localStore: LocalService) { }
 
   ngOnInit(): void {
-    this.localStore.saveData('salam', 'password');
-    console.log('value of ', this.localStore.getData('salam'));
   }
 
 }
