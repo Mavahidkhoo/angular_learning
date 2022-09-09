@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
         }, 100);
         
       }else if (form.value.password == checkUser) {
-        alert("succes");
+        this.router.navigate(['/about']);
       } else {
         alert('pass not match');
       }
