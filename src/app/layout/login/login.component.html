@@ -1,27 +1,28 @@
 <html>
   <div class="container-fluid row">
     <div class="col-4"></div>
-    <form class="col-4 bg-info py-4 rounded-5" #signupForm="ngForm" (ngSubmit)="registerUser(signupForm)">
-    <!--username-->
-    <div class="form-group text-center">
-      <label for="username" class="fw-bold">username</label>
-      <input type="text" class="form-control text-center" aria-describedby="usernameHelp"
-        placeholder="Enter your username!" name="username" id="userName" ngModel>
-      <small id="usernameHelp2" class="form-text text-danger d-none">The user does not exist</small>
-      <small id="usernameHelp" class="form-text text-danger d-none">fill the blank</small>
-    </div>
-    <!--password-->
-    <div class="form-group text-center">
-      <label for="password" class="fw-bold">password</label>
-      <input type="password" class="form-control text-center" aria-describedby="passwordHelp"
-        placeholder="Enter your password!" name="password" id="passWord" ngModel>
-      <small id="passwordHelp" class="form-text text-danger d-none">Wrong password</small>
-    </div>
-    <!--login-->
-    <div class="form-group d-flex justify-content-center">
-      <input type="submit" class="bg-dark px-5 py-1 mt-3 rounded text-white" value="  Login  ">
-    </div>
-    <div class="col-4"></div>
+    <form class="col-4 bg-info py-4 rounded-5" [formGroup]="loginform" (ngSubmit)="onSubmit()" novalidate>
+      <!--username-->
+      <div class="form-group text-center">
+        <label for="username" class="fw-bold">username</label>
+        <input type="text" class="form-control text-center" aria-describedby="usernameHelp"
+          placeholder="Enter your username!" formControlName="userName">
+        <small class="form-text text-danger d-none" *ngIf="!loginform.value.userName">The user does not
+          exist</small>
+        <small id="usernameHelp" class="form-text text-danger d-none">fill the blank</small>
+      </div>
+      <!--password-->
+      <div class="form-group text-center">
+        <label for="password" class="fw-bold">password</label>
+        <input type="password" class="form-control text-center" aria-describedby="passwordHelp"
+          placeholder="Enter your password!" formControlName="passWord">
+        <small id="passwordHelp" class="form-text text-danger d-none">Wrong password</small>
+      </div>
+      <!--login-->
+      <div class="form-group d-flex justify-content-center">
+        <input type="submit" class="bg-dark px-5 py-1 mt-3 rounded text-white" value="  Login  ">
+      </div>
+      <div class="col-4"></div>
     </form>
   </div>
 
