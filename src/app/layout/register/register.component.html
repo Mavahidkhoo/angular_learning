@@ -4,26 +4,50 @@
     <div class="container-fluid row">
       <div class="col-4"></div>
       <div class="col-4 text-center bg-info pt-3">
-        <div>
-          <!--First Name-->
-          <div class="form-group">
-            <label for="FirstName">First Name</label>
-            <input type="text" class="form-control" id="FirstName" aria-describedby="FirstNameHelp"
-              placeholder="Enter your Name!">
-            <small id="FirstNameHelp" class="form-text text-danger d-none">Just Enter Alphabet</small>
-          </div>
-          <!--Last Name-->
-          <div class="form-group">
-            <label for="LastName">Last Name</label>
-            <input type="text" class="form-control" id="LastName" aria-describedby="LastNameHelp"
-              placeholder="Enter your LastName!">
-            <small id="LastNameHelp" class="form-text text-danger d-none">Just Enter Alphabet</small>
+        <form formGroup="registrationForm" (ngSubmit)="onSubmit()">
+          <div>
+            <!--First Name-->
+            <div class="form-group" formGroupName="fullName">
+              <label for="FirstName" [ngClass]="{'error': submitted && myForm.fullName.controls.firstName.errors}">First
+                Name</label>
+              <input type="text" class="form-control" aria-describedby="FirstNameHelp" placeholder="Enter your Name!"
+                formControlName="firstName"
+                [ngClass]="{'error': submitted && myForm.fullName.controls.firstName.errors}">
+              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.firstName.errors?.required">
+                <sup>*</sup>Enter your name
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.firstName.errors?.minlength">
+                <sup>*</sup>Name must be 2 characters long
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.firstName.errors?.pattern">
+                <sup>*</sup>No special charcter allowed
+              </div>
+            </div>
+            <!--Last Name-->
+            <div class="form-group">
+              <label [ngClass]="{'error': submitted && myForm.fullName.controls.lastName.errors}">
+                Last name</label>
+              <input type="text" class="form-control" formControlName="lastName"
+                [ngClass]="{'error': submitted && myForm.fullName.controls.lastName.errors}">
+              <!-- error block -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.lastName.errors?.required">
+                <sup>*</sup>Please enter your surname
+              </div>
+            </div>
           </div>
           <!--Email-->
           <div class="form-group">
-            <label for="Mail">Email address</label>
-            <input type="email" class="form-control" id="Mail" aria-describedby="MailHelp" placeholder="Enter email">
-            <small id="MailHelp" class="form-text text-danger d-none">Enter Right Email</small>
+            <label [ngClass]="{'error': submitted && myForm.email.errors}">Email</label>
+            <input type="email" class="form-control" formControlName="email"
+              [ngClass]="{'error': submitted && myForm.email.errors}">
+
+            <!-- error block -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
+              <sup>*</sup>Please enter your email
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
+              <sup>*</sup>Please enter valid email
+            </div>
           </div>
           <!--UserName-->
           <div class="form-group">
@@ -36,18 +60,32 @@
           </div>
           <!--Age-->
           <div class="form-group">
-            <label for="Age">Age</label>
-            <input type="text" class="form-control" id="Age" aria-describedby="AgeHelp" placeholder="Enter your Age!">
-            <small id="AgeHelp" class="form-text text-danger d-none">Just Enter Number between 10-60</small>
+            <label [ngClass]="{'error': submitted && myForm.age.errors}">Phone Number</label>
+            <input type="text" class="form-control" formControlName="age"
+              [ngClass]="{'error': submitted && myForm.age.errors}">
+            <!-- error block -->
+            <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.maxLength">
+              <sup>*</sup>just Betwwen 10-60
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.required">
+              <sup>*</sup>Please enter your age
+            </div>
+            <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.pattern">
+              <sup>*</sup>Please enter valid age
+            </div>
           </div>
           <!--Gender-->
           <div class="form-group mb-0">
-            <label for="Gender">Gender</label><br>
-            <input type="radio" id="Male" name="gender" value="Male">
-            <label style="margin-right:25px ;" for="Male">Male</label>
-            <input type="radio" id="Female" name="gender" value="Female">
-            <label for="Female">Female</label>
-            <small id="GenderHelp" class="form-text text-danger d-none">select your Gender</small>
+            <div class="custom-control custom-radio">
+              <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
+                checked>
+              <label class="custom-control-label" for="male">Male</label>
+            </div>
+
+            <div class="custom-control custom-radio">
+              <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
+              <label class="custom-control-label" for="female">Female</label>
+            </div>
           </div>
           <!--Password-->
           <div class="form-group">
@@ -62,9 +100,11 @@
             <input type="button" class="btn-info m-2 rounded" id="BtnShow" value=" Show ">
             <input type="button" class="btn-success m-2 rounded" id="BtnGoLogin" value=" Login ">
           </div>
-        </div>
       </div>
-      <div class="col-4"></div>
+      </form>
+
+    </div>
+    <div class="col-4"></div>
     </div>
   </body>
 
