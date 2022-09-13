@@ -4,107 +4,119 @@
     <div class="container-fluid row">
       <div class="col-4"></div>
       <div class="col-4 text-center bg-info pt-3">
-        <form formGroup="registrationForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
           <div>
             <!--First Name-->
-            <div class="form-group" formGroupName="fullName">
-              <label for="FirstName" [ngClass]="{'error': submitted && myForm.fullName.controls.firstName.errors}">First
+            <div class="form-group">
+              <label for="FirstName" [ngClass]="{'error': submitted && myForm.firstName.errors}">First
                 Name</label>
               <input type="text" class="form-control" aria-describedby="FirstNameHelp" placeholder="Enter your Name!"
                 formControlName="firstName"
-                [ngClass]="{'error': submitted && myForm.fullName.controls.firstName.errors}">
-              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.firstName.errors?.required">
+                ngClass="{'error': submitted && myForm.firstName.errors}">
+              <div class="invalid-feedback"
+                *ngIf="submitted && myForm.firstName.errors?.valid">
                 <sup>*</sup>Enter your name
               </div>
-              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.firstName.errors?.minlength">
+              <div class="invalid-feedback"
+                *ngIf="submitted && myForm.firstName.errors?.minlength">
                 <sup>*</sup>Name must be 2 characters long
               </div>
-              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.firstName.errors?.pattern">
+              <div class="invalid-feedback" *ngIf="submitted && myForm.firstName.errors?.pattern">
                 <sup>*</sup>No special charcter allowed
               </div>
             </div>
             <!--Last Name-->
             <div class="form-group">
-              <label [ngClass]="{'error': submitted && myForm.fullName.controls.lastName.errors}">
+              <label [ngClass]="{'error': submitted && myForm.lastName.errors}">
                 Last name</label>
               <input type="text" class="form-control" formControlName="lastName"
-                [ngClass]="{'error': submitted && myForm.fullName.controls.lastName.errors}">
+                [ngClass]="{'error': submitted && myForm.lastName.errors}">
               <!-- error block -->
-              <div class="invalid-feedback" *ngIf="submitted && myForm.fullName.controls.lastName.errors?.required">
+              <div class="invalid-feedback" *ngIf="submitted && myForm.lastName.errors?.required">
                 <sup>*</sup>Please enter your surname
               </div>
             </div>
-          </div>
-          <!--Email-->
-          <div class="form-group">
-            <label [ngClass]="{'error': submitted && myForm.email.errors}">Email</label>
-            <input type="email" class="form-control" formControlName="email"
-              [ngClass]="{'error': submitted && myForm.email.errors}">
+            <!--Email-->
+            <div class="form-group">
+              <label [ngClass]="{'error': submitted && myForm.email.errors}">Email</label>
+              <input type="email" class="form-control" formControlName="email"
+                [ngClass]="{'error': submitted && myForm.email.errors}">
+
+              <!-- error block -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
+                <sup>*</sup>Please enter your email
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
+                <sup>*</sup>Please enter valid email
+              </div>
+            </div>
+            <!--UserName-->
+            <div class="form-group">
+              <label for="UserName">Username</label>
+              <input type="text" class="form-control" id="UserName" aria-describedby="UserNameHelp"
+                placeholder="Enter your UserName!">
+              <small id="UserNameHelp" class="form-text text-danger d-none">Enter Another Username</small>
+              <small id="UserNameHelp2" class="form-text text-danger d-none">Enter Your Username</small>
+
+            </div>
+            <!--Age-->
+            <div class="form-group">
+              <label [ngClass]="{'error': submitted && myForm.age.errors}">Phone Number</label>
+              <input type="text" class="form-control" formControlName="age"
+                [ngClass]="{'error': submitted && myForm.age.errors}">
+              <!-- error block -->
+              <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.maxLength">
+                <sup>*</sup>just Betwwen 10-60
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.required">
+                <sup>*</sup>Please enter your age
+              </div>
+              <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.pattern">
+                <sup>*</sup>Please enter valid age
+              </div>
+            </div>
+            <!--Gender-->
+            <div class="form-group mb-0">
+              <h5 class="mb-3">Gender</h5>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
+                  checked>
+                <label class="custom-control-label" for="male">Male</label>
+              </div>
+
+              <div class="custom-control custom-radio">
+                <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
+                <label class="custom-control-label" for="female">Female</label>
+              </div>
+            </div>
+            </div>
+            <!--Password-->
+            <!-- <div class="form-group" formGroupName="PasswordValidation">
+              <label [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.password.errors}">Password</label>
+              <input type="password" class="form-control" formControlName="password" [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.password.errors}"> -->
+
+              <!-- error block -->
+              <!-- <div class="invalid-feedback" *ngIf="submitted && myForm.PasswordValidation.controls.password.errors">
+                <sup>*</sup>Please enter password
+              </div>
+            </div> -->
+
+            <!-- <div class="mb-3">
+              <label [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.confirmPassword.errors}">Confirm
+                Password</label>
+              <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.confirmPassword.errors}">
+            </div> -->
 
             <!-- error block -->
-            <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
-              <sup>*</sup>Please enter your email
-            </div>
-            <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
-              <sup>*</sup>Please enter valid email
-            </div>
+            <!-- <div class="invalid-feedback" *ngIf="submitted && myForm.PasswordValidation.controls.confirmPassword.errors">
+              <sup>*</sup>Password mismatch
+            </div> -->
+            <button type="submit" class="btn btn-danger px-2 rounded">Save</button>
           </div>
-          <!--UserName-->
-          <div class="form-group">
-            <label for="UserName">Username</label>
-            <input type="text" class="form-control" id="UserName" aria-describedby="UserNameHelp"
-              placeholder="Enter your UserName!">
-            <small id="UserNameHelp" class="form-text text-danger d-none">Enter Another Username</small>
-            <small id="UserNameHelp2" class="form-text text-danger d-none">Enter Your Username</small>
-
-          </div>
-          <!--Age-->
-          <div class="form-group">
-            <label [ngClass]="{'error': submitted && myForm.age.errors}">Phone Number</label>
-            <input type="text" class="form-control" formControlName="age"
-              [ngClass]="{'error': submitted && myForm.age.errors}">
-            <!-- error block -->
-            <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.maxLength">
-              <sup>*</sup>just Betwwen 10-60
-            </div>
-            <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.required">
-              <sup>*</sup>Please enter your age
-            </div>
-            <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.pattern">
-              <sup>*</sup>Please enter valid age
-            </div>
-          </div>
-          <!--Gender-->
-          <div class="form-group mb-0">
-            <div class="custom-control custom-radio">
-              <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
-                checked>
-              <label class="custom-control-label" for="male">Male</label>
-            </div>
-
-            <div class="custom-control custom-radio">
-              <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
-              <label class="custom-control-label" for="female">Female</label>
-            </div>
-          </div>
-          <!--Password-->
-          <div class="form-group">
-            <label for="Pass">Password</label>
-            <input type="password" class="form-control mb-2" id="Pass" placeholder="Password">
-            <input type="password" class="form-control" id="PassCheck" placeholder="Confirm your Password!">
-            <small id="passwordHelp" class="form-text text-danger d-none">Not Match Paswword!</small>
-            <small id="passwordHelp2" class="form-text text-danger d-none">Enter a Paswword!</small>
-          </div>
-          <div class="form-group">
-            <input type="button" class="btn-danger m-2 rounded" id="BtnSave" value="  Save  ">
-            <input type="button" class="btn-info m-2 rounded" id="BtnShow" value=" Show ">
-            <input type="button" class="btn-success m-2 rounded" id="BtnGoLogin" value=" Login ">
-          </div>
+        </form>
       </div>
-      </form>
-
-    </div>
-    <div class="col-4"></div>
+      <div class="col-4"></div>
     </div>
   </body>
 
