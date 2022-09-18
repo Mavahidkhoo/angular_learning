@@ -3,116 +3,66 @@
   <body>
     <div class="container-fluid row">
       <div class="col-4"></div>
-      <div class="col-4 text-center bg-info pt-3">
-        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="col-4 text-center bg-light pt-3">
+        <form>
+          <!-- firstname -->
           <div>
-            <!--First Name-->
-            <div class="form-group">
-              <label for="FirstName" [ngClass]="{'error': submitted && myForm.firstName.errors}">First
-                Name</label>
-              <input type="text" class="form-control" aria-describedby="FirstNameHelp" placeholder="Enter your Name!"
-                formControlName="firstName"
-                ngClass="{'error': submitted && myForm.firstName.errors}">
-              <div class="invalid-feedback"
-                *ngIf="submitted && myForm.firstName.errors?.valid">
-                <sup>*</sup>Enter your name
-              </div>
-              <div class="invalid-feedback"
-                *ngIf="submitted && myForm.firstName.errors?.minlength">
-                <sup>*</sup>Name must be 2 characters long
-              </div>
-              <div class="invalid-feedback" *ngIf="submitted && myForm.firstName.errors?.pattern">
-                <sup>*</sup>No special charcter allowed
-              </div>
-            </div>
-            <!--Last Name-->
-            <div class="form-group">
-              <label [ngClass]="{'error': submitted && myForm.lastName.errors}">
-                Last name</label>
-              <input type="text" class="form-control" formControlName="lastName"
-                [ngClass]="{'error': submitted && myForm.lastName.errors}">
-              <!-- error block -->
-              <div class="invalid-feedback" *ngIf="submitted && myForm.lastName.errors?.required">
-                <sup>*</sup>Please enter your surname
-              </div>
-            </div>
-            <!--Email-->
-            <div class="form-group">
-              <label [ngClass]="{'error': submitted && myForm.email.errors}">Email</label>
-              <input type="email" class="form-control" formControlName="email"
-                [ngClass]="{'error': submitted && myForm.email.errors}">
-
-              <!-- error block -->
-              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
-                <sup>*</sup>Please enter your email
-              </div>
-              <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
-                <sup>*</sup>Please enter valid email
-              </div>
-            </div>
-            <!--UserName-->
-            <div class="form-group">
-              <label for="UserName">Username</label>
-              <input type="text" class="form-control" id="UserName" aria-describedby="UserNameHelp"
-                placeholder="Enter your UserName!">
-              <small id="UserNameHelp" class="form-text text-danger d-none">Enter Another Username</small>
-              <small id="UserNameHelp2" class="form-text text-danger d-none">Enter Your Username</small>
-
-            </div>
-            <!--Age-->
-            <div class="form-group">
-              <label [ngClass]="{'error': submitted && myForm.age.errors}">Phone Number</label>
-              <input type="text" class="form-control" formControlName="age"
-                [ngClass]="{'error': submitted && myForm.age.errors}">
-              <!-- error block -->
-              <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.maxLength">
-                <sup>*</sup>just Betwwen 10-60
-              </div>
-              <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.required">
-                <sup>*</sup>Please enter your age
-              </div>
-              <div class="invalid-feedback" *ngIf="submitted && myForm.age.errors?.pattern">
-                <sup>*</sup>Please enter valid age
-              </div>
-            </div>
-            <!--Gender-->
-            <div class="form-group mb-0">
-              <h5 class="mb-3">Gender</h5>
-            <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-                <input id="male" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="male"
-                  checked>
-                <label class="custom-control-label" for="male">Male</label>
-              </div>
-
-              <div class="custom-control custom-radio">
-                <input id="female" type="radio" class="custom-control-input" name="gender" formControlName="gender" value="female">
-                <label class="custom-control-label" for="female">Female</label>
-              </div>
-            </div>
-            </div>
-            <!--Password-->
-            <!-- <div class="form-group" formGroupName="PasswordValidation">
-              <label [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.password.errors}">Password</label>
-              <input type="password" class="form-control" formControlName="password" [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.password.errors}"> -->
-
-              <!-- error block -->
-              <!-- <div class="invalid-feedback" *ngIf="submitted && myForm.PasswordValidation.controls.password.errors">
-                <sup>*</sup>Please enter password
-              </div>
-            </div> -->
-
-            <!-- <div class="mb-3">
-              <label [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.confirmPassword.errors}">Confirm
-                Password</label>
-              <input type="password" class="form-control" formControlName="confirmPassword" [ngClass]="{'error': submitted && myForm.PasswordValidation.controls.confirmPassword.errors}">
-            </div> -->
-
-            <!-- error block -->
-            <!-- <div class="invalid-feedback" *ngIf="submitted && myForm.PasswordValidation.controls.confirmPassword.errors">
-              <sup>*</sup>Password mismatch
-            </div> -->
-            <button type="submit" class="btn btn-danger px-2 rounded">Save</button>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Firstname</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <!-- lastname -->
+          <div>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Lastname</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <!-- email -->
+          <div>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <!-- Age -->
+          <div>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Age</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <!-- gender -->
+          <div class="text-start mb-3">
+            <mat-radio-group>
+              <mat-label>Gender</mat-label><br>
+              <mat-radio-button value="male" class="mb-1">Male</mat-radio-button>
+              <mat-radio-button value="female" class="mx-5">Female</mat-radio-button>
+            </mat-radio-group>
+          </div>
+          <!-- username -->
+          <div>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <!-- password -->
+          <div>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field class="col-12" appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-flat-button color="warn" class="px-5">Save</button>
           </div>
         </form>
       </div>
