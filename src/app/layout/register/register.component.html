@@ -9,35 +9,39 @@
           <div>
             <mat-form-field class="col-12" appearance="outline">
               <mat-label>Firstname</mat-label>
-              <input matInput>
+              <input matInput [formControl]="firstName" required>
+              <mat-error *ngIf="firstName.invalid">{{firstNameError()}}</mat-error>
             </mat-form-field>
           </div>
           <!-- lastname -->
           <div>
             <mat-form-field class="col-12" appearance="outline">
               <mat-label>Lastname</mat-label>
-              <input matInput>
+              <input matInput [formControl]="lastName" required>
+              <mat-error *ngIf="lastName.invalid">{{lastNameError()}}</mat-error>
             </mat-form-field>
           </div>
           <!-- email -->
           <div>
             <mat-form-field class="col-12" appearance="outline">
               <mat-label>Email</mat-label>
-              <input matInput>
+              <input matInput [formControl]="email" required>
+              <mat-error *ngIf="email.invalid">{{emailError()}}</mat-error>
             </mat-form-field>
           </div>
           <!-- Age -->
           <div>
             <mat-form-field class="col-12" appearance="outline">
               <mat-label>Age</mat-label>
-              <input matInput>
+              <input matInput [formControl]="age" required>
+              <mat-error *ngIf="age.invalid">{{ageError()}}</mat-error>
             </mat-form-field>
           </div>
           <!-- gender -->
           <div class="text-start mb-3">
             <mat-radio-group>
               <mat-label>Gender</mat-label><br>
-              <mat-radio-button value="male" class="mb-1">Male</mat-radio-button>
+              <mat-radio-button value="male" class="mb-1" [checked]="true">Male</mat-radio-button>
               <mat-radio-button value="female" class="mx-5">Female</mat-radio-button>
             </mat-radio-group>
           </div>
@@ -61,6 +65,7 @@
               <input matInput>
             </mat-form-field>
           </div>
+          <!-- btn -->
           <div>
             <button mat-flat-button color="warn" class="px-5">Save</button>
           </div>
